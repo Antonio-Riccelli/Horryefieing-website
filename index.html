@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=VT323&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Koulen&display=swap"
+      rel="stylesheet"
+    />
+    <title>Document</title>
+    <style>
+@font-face {
+  font-family: 'Horryfont';
+  src:  url('./BlackAsylum-xypj.ttf') format('woff2'),
+   url('./BlackAsylum-xypj.ttf') format('woff');
+     
+}
+
+
+        ul {
+            list-style-type: none;
+        }
+
+      body {
+        margin: 0;
+        padding: 0;
+        background-color: white;
+        flex-flow: column nowrap;
+        overflow-x: hidden;
+      }
+      #main {
+        background-color: #1B1212;
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .container {
+        width: 100%;
+        height: 100%;
+      }
+
+      #myHeader {
+        display: flex;
+        width: 100%;
+        height: 500px;
+        position: relative;
+        justify-content: space-between;
+        align-items: center;
+        /* font-family: "Koulen", cursive; */;
+        font-family: Horryfont;
+        /* -webkit-text-stroke: 3px black; */
+        text-shadow: 5px 5px 2px black;
+      }
+      #myVideo {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        position: absolute;
+        z-index: -1;
+      }
+      #logo {
+        width: 33%;
+        height: 75%;
+        margin-left: 20px;
+      }
+
+      nav {
+        margin-right: 100px;
+      }
+
+      #header-ul {
+        display: flex;
+        justify-content: space-around;
+        width: 100%;
+        list-style-type: none;
+        font-size: 3.5rem;
+      }
+
+      .header-li {
+        padding: 10px;
+        margin: 20px;
+      }
+
+      .header-a {
+        color: red;
+        stroke-width: 2px black;
+        text-decoration: none;
+      }
+
+      .header-a:hover {
+      }
+
+      .gallery {
+        perspective: 700px;
+        width: 80vw;
+        height: 250px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-flow: row wrap;
+        /* border: 2px solid white; */
+      }
+
+      .effect-ul {
+        position: relative;
+        width: 500px;
+        height: 500px;
+        margin: 0.1em;
+        perspective-origin: center center;
+        transform-style: preserve-3d;
+        transform: rotateX(40deg);
+        transition: all 0.4s;
+        border: 2px solid grey;
+        box-shadow: 0px 0px 5px 5px red;
+      }
+
+      .effect-ul:hover {
+        transform: translateZ(100px) rotateX(20deg);
+        z-index: 999;
+      }
+
+      .effect-ul:hover li {
+        filter: grayscale(0);
+      }
+
+      .effect-li {
+        position: absolute;
+        left: 0;
+        top: 0;
+        backface-visibility: hidden;
+        width: 100%;
+        height: 100%;
+        transition: transform 0.3s, filter 1s;
+        background: coral;
+        filter: grayscale(0.9);
+        
+      }
+
+      .effect-ul > li:first-of-type {
+        transform: none;
+      }
+      .effect-ul > li:nth-of-type(2) {
+        left: 100%;
+        transform-origin: left center;
+        transform: rotateY(180deg);
+      }
+      .effect-ul > li:nth-of-type(3) {
+        top: 100%;
+        transform-origin: center top;
+        transform: rotateX(-180deg);
+      }
+      .effect-ul > li:nth-of-type(4) {
+        left: -100%;
+        transform-origin: right center;
+        transform: rotateY(-180deg);
+      }
+      .effect-ul > li:nth-of-type(5) {
+        top: -100%;
+        transform-origin: center bottom;
+        transform: rotateX(180deg);
+      }
+      .effect-ul > li:nth-of-type(6) {
+        top: 100%;
+        left: 100%;
+        transform-origin: center top;
+        transform: rotateX(-180deg);
+      }
+      .effect-ul > li:nth-of-type(7) {
+        top: 100%;
+        left: -100%;
+        transform-origin: right center;
+        transform: rotateY(-180deg);
+      }
+      .effect-ul > li:nth-of-type(8) {
+        top: -100%;
+        left: -100%;
+        transform-origin: center bottom;
+        transform: rotateX(180deg);
+      }
+      .effect-ul > li:nth-of-type(9) {
+        top: -100%;
+        left: 100%;
+        transform-origin: left center;
+        transform: rotateY(180deg);
+      }
+
+      .effect-ul > li:nth-of-type(2),
+      .effect-ul > li:nth-of-type(3),
+      .effect-ul > li:nth-of-type(4),
+      .effect-ul > li:nth-of-type(5) {
+        transition-delay: 0.03s;
+      }
+      .effect-ul > li:nth-of-type(6),
+      .effect-ul > li:nth-of-type(7),
+      .effect-ul > li:nth-of-type(8),
+      .effect-ul > li:nth-of-type(9) {
+        transition-delay: 0s;
+      }
+      .effect-ul:hover :nth-of-type(2),
+      .effect-ul:hover :nth-of-type(3),
+      .effect-ul:hover :nth-of-type(4),
+      .effect-ul:hover :nth-of-type(5) {
+        transition-delay: 0s;
+      }
+      .effect-ul:hover :nth-of-type(6),
+      .effect-ul:hover :nth-of-type(7),
+      .effect-ul:hover :nth-of-type(8),
+      .effect-ul:hover :nth-of-type(9) {
+        transition-delay: 0.2s;
+      }
+
+      .effect-ul:hover :nth-of-type(2),
+      .effect-ul:hover :nth-of-type(4),
+      .effect-ul:hover :nth-of-type(7),
+      .effect-ul:hover :nth-of-type(9) {
+        transform: rotateY(0);
+      }
+      .effect-ul:hover :nth-of-type(3),
+      .effect-ul:hover :nth-of-type(5),
+      .effect-ul:hover :nth-of-type(6),
+      .effect-ul:hover :nth-of-type(8) {
+        transform: rotateX(0);
+      }
+
+      .effect-ul li {
+        background-size: 300% 300%;
+      }
+      .effect-ul li:nth-of-type(1) {
+        background-position: center center;
+      }
+      .effect-ul li:nth-of-type(2) {
+        background-position: right center;
+      }
+      .effect-ul li:nth-of-type(3) {
+        background-position: center bottom;
+      }
+      .effect-ul li:nth-of-type(4) {
+        background-position: left center;
+      }
+      .effect-ul li:nth-of-type(5) {
+        background-position: center top;
+      }
+      .effect-ul li:nth-of-type(6) {
+        background-position: right bottom;
+      }
+      .effect-ul li:nth-of-type(7) {
+        background-position: left bottom;
+      }
+      .effect-ul li:nth-of-type(8) {
+        background-position: left top;
+      }
+      .effect-ul li:nth-of-type(9) {
+        background-position: right top;
+      }
+
+      .effect-ul:nth-of-type(1) li {
+        background-image: url("./images/kakos3.jfif");
+      }
+      .effect-ul:nth-of-type(1) {
+        width: 120px;
+        height: 100px;
+      }
+      .effect-ul:nth-of-type(2) li {
+        background-image: url("images/shedim-one.jfif");
+      }
+      .effect-ul:nth-of-type(2) {
+        width: 90px;
+        height: 160px;
+      }
+      .effect-ul:nth-of-type(3) li {
+        background-image: url("./images/game-nine.jfif");
+      }
+      .effect-ul:nth-of-type(3) {
+        width: 130px;
+        height: 100px;
+      }
+      .effect-ul:nth-of-type(4) li {
+        background-image: url("./images/game-four.jfif");
+      }
+      .effect-ul:nth-of-type(4) {
+        width: 90px;
+        height: 160px;
+      }
+      .effect-ul:nth-of-type(5) li {
+        background-image: url(//picsum.photos/1042/1356?image=978);
+      }
+      .effect-ul:nth-of-type(5) {
+        width: 64px;
+        height: 84px;
+      }
+      .effect-ul:nth-of-type(6) li {
+        background-image: url(//picsum.photos/1000/666image=943);
+      }
+      .effect-ul:nth-of-type(6) {
+        width: 100px;
+        height: 66px;
+      }
+
+      .effect-li { text-indent:999px; overflow:hidden; }
+    </style>
+  </head>
+  <body>
+    <header id="myHeader">
+      <video autoplay muted loop id="myVideo">
+        <source
+          <!--
+          src="./Horryefieing - Beta Build 6th September 2020 - FULL LEVEL - House_1080p.mp4"
+          --
+        />
+        src="https://drive.google.com/file/d/1Cs-hvrTKZacpwUhmIdI0f4e4ZJRvXbKb/view?usp=sharing">
+        type="video/mp4" />
+      </video>
+
+      <img src="./hflogora.png" id="logo" />
+
+      <nav>
+        <ul id="header-ul">
+          <li class="header-li"><a href="" class="header-a">Home</a></li>
+          <li class="header-li"><a href="" class="header-a">Story</a></li>
+          <li class="header-li"><a href="" class="header-a">Media</a></li>
+          <li class="header-li"><a href="" class="header-a">Contacts</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main id="main">
+      <section class="gallery">
+        <ul class="effect-ul">
+          <li class="effect-li"></li>
+          <li class="effect-li"></li>
+          <li class="effect-li"></li>
+          <li class="effect-li"></li>
+          <li class="effect-li"></li>
+          <li class="effect-li"></li>
+          <li class="effect-li"></li>
+          <li class="effect-li"></li>
+          <li class="effect-li"></li>
+        </ul>
+
+        <ul class="effect-ul">
+            <li class="effect-li"></li>
+            <li class="effect-li"></li>
+            <li class="effect-li"></li>
+            <li class="effect-li"></li>
+            <li class="effect-li"></li>
+            <li class="effect-li"></li>
+            <li class="effect-li"></li>
+            <li class="effect-li"></li>
+            <li class="effect-li"></li>
+          </ul>
+
+          <ul class="effect-ul">
+            <li class="effect-li"></li>
+            <li class="effect-li"></li>
+            <li class="effect-li"></li>
+            <li class="effect-li"></li>
+            <li class="effect-li"></li>
+            <li class="effect-li"></li>
+            <li class="effect-li"></li>
+            <li class="effect-li"></li>
+            <li class="effect-li"></li>
+          </ul>
+
+          <ul class="effect-ul">
+            <li class="effect-li"></li>
+            <li class="effect-li"></li>
+            <li class="effect-li"></li>
+            <li class="effect-li"></li>
+            <li class="effect-li"></li>
+            <li class="effect-li"></li>
+            <li class="effect-li"></li>
+            <li class="effect-li"></li>
+            <li class="effect-li"></li>
+          </ul>
+      </section>
+    </main>
+
+    <script></script>
+  </body>
+</html>
